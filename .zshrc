@@ -133,6 +133,8 @@ if [ -f '/Users/joaomarcelo/Downloads/google-cloud-sdk 3/completion.zsh.inc' ]; 
 
 # Added by LM Studio CLI (lms)
 export PATH="$PATH:/Users/joaomarcelo/.lmstudio/bin"
+export PATH="$PATH:/Library/TeX/texbin"
+
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
