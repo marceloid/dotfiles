@@ -1,0 +1,6 @@
+# Ignore all .dat files (runtime data)
+*.dat
+
+# Ignore temporary or cache files if they exist
+*.tmp
+*.bak
