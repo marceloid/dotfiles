@@ -1,1 +1,6 @@
 scripts
+.git
+.gitignore
+README.md
+LICENSE
+install.sh

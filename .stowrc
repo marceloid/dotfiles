@@ -1,0 +1,4 @@
+--dotfiles     # translate dot- to . when linking
+-v             # verbose output
+-t ~           # target directory (home)
+
