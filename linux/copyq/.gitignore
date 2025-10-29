@@ -4,3 +4,5 @@
 # Ignore temporary or cache files if they exist
 *.tmp
 *.bak
+
+dot-config/copyq/*.ini
