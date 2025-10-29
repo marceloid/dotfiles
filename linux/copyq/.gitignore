@@ -5,4 +5,8 @@
 *.tmp
 *.bak
 
+# Ignore all CopyQ .ini files
 dot-config/copyq/*.ini
+
+# But keep main configuration if desired
+!dot-config/copyq/copyq.conf
