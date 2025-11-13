@@ -25,10 +25,18 @@ process_folder_by_folder() {
 
     if [[ -d "$base_dir" ]]; then
         echo "📦 Processing '$base_dir' for action: $action"
-	# Change into the base_dir so package names are relative
+        # Change into the base_dir so package names are relative
         pushd "$base_dir" > /dev/null || return
-	for pkg in */; do
+        # iterate only directories
+        for pkg in */; do
+            # skip if not a directory (safety) or if pattern doesn't match
+            [[ -z "$pkg" ]] && continue
             pkg_name=$(basename "$pkg")
+            # ignore hidden folders like .git, dotfiles metadata, etc.
+            if [[ "$pkg_name" == .* ]]; then
+                continue
+            fi
+
             if [[ "$action" == "stow" ]]; then
                 echo "  🔗 Stowing $pkg_name ..."
                 stow --dotfiles -v -t ~ "$pkg_name" || echo "  ⚠️ Failed to stow $pkg_name"
@@ -37,7 +45,7 @@ process_folder_by_folder() {
                 stow -D --dotfiles -v -t ~ "$pkg_name" || echo "  ⚠️ Failed to unstow $pkg_name"
             fi
         done
-	popd > /dev/null
+        popd > /dev/null
         echo
     else
         echo "🚫 Skipping $base_dir (not found)"
@@ -62,4 +70,3 @@ else
 
     echo "✅ All dotfiles have been unstowed for '$OS'."
 fi
-
