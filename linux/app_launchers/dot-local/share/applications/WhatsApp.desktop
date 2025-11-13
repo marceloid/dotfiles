@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=WhatsApp
+Comment=WhatsApp
+Exec=omarchy-launch-or-focus-webapp WhatsApp https://web.whatsapp.com/
+Terminal=false
+Type=Application
+Icon=/home/marceloid/.local/share/applications/icons/WhatsApp.png
+StartupNotify=true

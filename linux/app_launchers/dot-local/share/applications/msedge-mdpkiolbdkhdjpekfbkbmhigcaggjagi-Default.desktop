@@ -1,0 +1,9 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Terminal=false
+Type=Application
+Name=Google Chat
+Exec=/opt/microsoft/msedge/microsoft-edge --profile-directory=Default --app-id=mdpkiolbdkhdjpekfbkbmhigcaggjagi --app-url=https://mail.google.com/chat/
+Icon=msedge-mdpkiolbdkhdjpekfbkbmhigcaggjagi-Default
+StartupWMClass=crx__mdpkiolbdkhdjpekfbkbmhigcaggjagi
