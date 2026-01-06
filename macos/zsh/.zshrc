@@ -167,3 +167,10 @@ export FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 # https://github.com/ajeetdsouza/zoxide
 # O comando abaixo inicializa o zoxide para ser usado com o comando 'cd'
 eval "$(zoxide init --cmd cd zsh)"
+
+# bun completions
+[ -s "/Users/joaomarcelo/.bun/_bun" ] && source "/Users/joaomarcelo/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
