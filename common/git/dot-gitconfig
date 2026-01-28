@@ -7,5 +7,3 @@
 	email = joaomarceloav@gmail.com
 [core]
 	pager = kitty +kitten diff
-[credential]
-	helper = libsecret
