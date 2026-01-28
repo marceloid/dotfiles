@@ -6,4 +6,8 @@
 	name = João Marcelo
 	email = joaomarceloav@gmail.com
 [core]
-	pager = kitty +kitten diff
+    pager = less
+[pager]
+    diff = kitty +kitten diff
+    log = kitty +kitten diff
+    show = kitty +kitten diff
