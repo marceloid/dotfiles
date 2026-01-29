@@ -11,3 +11,8 @@
     diff = kitty +kitten diff
     log = kitty +kitten diff
     show = kitty +kitten diff
+[includeIf "os:linux"]
+    path = ~/.gitconfig-linux
+
+[includeIf "os:darwin"]
+    path = ~/.gitconfig-macos
