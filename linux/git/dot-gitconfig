@@ -1,0 +1,15 @@
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[user]
+	name = João Marcelo
+	email = joaomarceloav@gmail.com
+[core]
+    pager = less
+[pager]
+    diff = kitty +kitten diff
+    log = kitty +kitten diff
+    show = kitty +kitten diff
+[credential]
+    helper = libsecret

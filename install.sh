@@ -70,3 +70,34 @@ else
 
     echo "✅ All dotfiles have been unstowed for '$OS'."
 fi
+
+###############################################################################
+# Arch Linux: instalar dependências e garantir o helper git-credential-libsecret
+###############################################################################
+# Só executa em Linux e apenas se pacman existir (Arch / derivados)
+if [[ "$OS" == "linux" ]]; then
+  if command -v pacman >/dev/null; then
+    echo "📦 Instalando dependências do libsecret (Arch)..."
+
+    # Garante que git e libsecret estejam instalados
+    sudo pacman -S --needed git libsecret
+
+    # No Arch, o helper não vem pronto: compila manualmente se não existir
+    if [[ ! -x /usr/local/bin/git-credential-libsecret ]]; then
+      echo "🔧 Compilando git-credential-libsecret..."
+      cd /usr/share/git/credential/libsecret
+      sudo make
+      sudo install -m755 git-credential-libsecret /usr/local/bin/
+    fi
+  fi
+fi
+
+###############################################################################
+# Inicializar o Secret Service (keyring) na sessão do usuário
+###############################################################################
+# Necessário para que o libsecret consiga armazenar credenciais
+# Deve rodar na sessão gráfica (Wayland/X11)
+if command -v gnome-keyring-daemon >/dev/null; then
+  eval "$(gnome-keyring-daemon --start --components=secrets,ssh)"
+  export SSH_AUTH_SOCK
+fi
