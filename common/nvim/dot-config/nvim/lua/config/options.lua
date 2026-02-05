@@ -15,3 +15,7 @@ vim.api.nvim_create_autocmd("OptionSet", {
     end
   end,
 })
+
+vim.opt.spell = true
+vim.opt.spelllang = "en,en_gb,pt"
+
