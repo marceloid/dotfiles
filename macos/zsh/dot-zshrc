@@ -99,9 +99,16 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+export EDITOR='nvim'
+
 # Ativa autocompletar ao pressionar espaço
 autoload -Uz magic-space
 bindkey ' ' magic-space
+
+# Suffix aliases - type filename to open with associated program
+alias -s py=$EDITOR
+alias -s md=$EDITOR
+alias -s pdf='open -a "Adobe Acrobat"'
 
 # User configuration
 
