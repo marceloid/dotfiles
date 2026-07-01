@@ -32,28 +32,33 @@ dotfiles/
 ├── install.sh            # Main install/uninstall script
 ├── .stowrc               # Stow default options
 ├── .stow-local-ingore    # Stow ignore files
-├── common/               # Shared configurations
-│   ├── git/
-│   │   ├── dot-gitconfig
-│   │   └── dot-gitignore_global
-│   ├── zsh/
-│   │   └── dot-zshrc
-│   ├── nvim/
-│   │   └── dot-config/nvim/init.lua
+├── common/               # Shared configurations (both OSes)
+│   ├── espanso/
+│   │   └── dot-config/espanso/
+│   │       ├── config/default.yml
+│   │       └── match/base.yml
 │   ├── kitty/
 │   │   └── dot-config/kitty/kitty.conf
-│   └── espanso/
-│       └── dot-config/espanso/match/base.yml
+│   ├── nvim/
+│   │   └── dot-config/nvim/
+│   └── tmux/
+│       └── dot-tmux.conf
 ├── linux/                # Linux-specific configs
-│   ├── bash/
-│   │   └── dot-bashrc
-│   └── hypr/
-│       └── dot-config/hypr/hyprland.conf
+│   ├── app_launchers/
+│   │   └── dot-local/share/applications/
+│   ├── copyq/
+│   │   └── dot-config/copyq/
+│   ├── git/
+│   │   └── dot-gitconfig
+│   ├── hypr/
+│   │   └── dot-config/hypr/
+│   └── waybar/
+│       └── dot-config/waybar/
 └── macos/                # macOS-specific configs
-    ├── zsh/
-    │   └── dot-zshrc
-    └── .../
-        └── dot-config/karabiner/karabiner.json
+    ├── git/
+    │   └── dot-gitconfig
+    └── zsh/
+        └── dot-zshrc
 ```
 
 ---
@@ -133,12 +138,36 @@ This will unstow `common/` and your OS-specific dotfiles.
 ~/.config/espanso/match/base.yml -> ~/dotfiles/common/espanso/dot-config/espanso/match/base.yml
 ```
 
-> **Note (espanso on macOS):** the install script also symlinks
-> `~/Library/Application Support/espanso` → `~/.config/espanso` so that the
-> single shared config works on macOS (where espanso reads from the Library
-> path by default) as well as on Linux.
-
 * The script is **idempotent**: running it multiple times will not duplicate links or overwrite existing files.
+
+---
+
+## Configured Apps
+
+### Espanso (text expander)
+
+Shared config at `common/espanso/`. Triggers defined in `match/base.yml`:
+
+| Trigger | Expands to |
+| ------- | ---------- |
+| `;today` | Current date (`dd/mm/YYYY`) |
+| `;now` | Current date and time (`dd/mm/YYYY HH:MM`) |
+| `;email` | Personal email address |
+| `;assino` | Signature block |
+
+On macOS the install script symlinks `~/Library/Application Support/espanso` →
+`~/.config/espanso` so the same config works on both OSes. Reload with
+`espanso restart` after changes.
+
+### Tmux
+
+Config at `common/tmux/dot-tmux.conf` (prefix: `C-a`). Useful bindings:
+
+| Binding | Action |
+| ------- | ------ |
+| `C-a r` | Reload `~/.tmux.conf` |
+| `C-a h/j/k/l` | Navigate panes (vim-style) |
+| `C-a X` | Kill current session (asks for confirmation) |
 
 ---
 
