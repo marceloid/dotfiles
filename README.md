@@ -40,8 +40,10 @@ dotfiles/
 │   │   └── dot-zshrc
 │   ├── nvim/
 │   │   └── dot-config/nvim/init.lua
-│   └── kitty/
-│       └── dot-config/kitty/kitty.conf
+│   ├── kitty/
+│   │   └── dot-config/kitty/kitty.conf
+│   └── espanso/
+│       └── dot-config/espanso/match/base.yml
 ├── linux/                # Linux-specific configs
 │   ├── bash/
 │   │   └── dot-bashrc
@@ -128,7 +130,13 @@ This will unstow `common/` and your OS-specific dotfiles.
 ~/.zshrc -> ~/dotfiles/common/zsh/dot-zshrc
 ~/.config/nvim/init.lua -> ~/dotfiles/common/nvim/dot-config/nvim/init.lua
 ~/.config/kitty/kitty.conf -> ~/dotfiles/common/kitty/dot-config/kitty/kitty.conf
+~/.config/espanso/match/base.yml -> ~/dotfiles/common/espanso/dot-config/espanso/match/base.yml
 ```
+
+> **Note (espanso on macOS):** the install script also symlinks
+> `~/Library/Application Support/espanso` → `~/.config/espanso` so that the
+> single shared config works on macOS (where espanso reads from the Library
+> path by default) as well as on Linux.
 
 * The script is **idempotent**: running it multiple times will not duplicate links or overwrite existing files.
 

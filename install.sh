@@ -93,6 +93,34 @@ if [[ "$OS" == "linux" ]]; then
 fi
 
 ###############################################################################
+# macOS: redirecionar a config do espanso para ~/.config/espanso
+###############################################################################
+# No macOS o espanso (v2) le por padrao ~/Library/Application Support/espanso,
+# enquanto no Linux ele le ~/.config/espanso. Para manter uma unica fonte no
+# dotfiles (common/espanso -> ~/.config/espanso), criamos um symlink no macOS
+# apontando o caminho padrao da Library para ~/.config/espanso.
+if [[ "$OS" == "macos" ]]; then
+  ESPANSO_LINK_TARGET="$HOME/.config/espanso"
+  ESPANSO_MAC_DIR="$HOME/Library/Application Support/espanso"
+
+  if [[ -e "$ESPANSO_LINK_TARGET" || -L "$ESPANSO_LINK_TARGET" ]]; then
+    if [[ -L "$ESPANSO_MAC_DIR" ]]; then
+      echo "🔗 espanso: symlink do macOS já existe, nada a fazer."
+    elif [[ -e "$ESPANSO_MAC_DIR" ]]; then
+      echo "📦 espanso: backup de config existente -> ${ESPANSO_MAC_DIR}.bak"
+      mv "$ESPANSO_MAC_DIR" "${ESPANSO_MAC_DIR}.bak"
+      ln -s "$ESPANSO_LINK_TARGET" "$ESPANSO_MAC_DIR"
+      echo "✅ espanso: symlink criado ($ESPANSO_MAC_DIR -> $ESPANSO_LINK_TARGET)"
+    else
+      ln -s "$ESPANSO_LINK_TARGET" "$ESPANSO_MAC_DIR"
+      echo "✅ espanso: symlink criado ($ESPANSO_MAC_DIR -> $ESPANSO_LINK_TARGET)"
+    fi
+  else
+    echo "⚠️ espanso: ~/.config/espanso não encontrado; rode o stow antes."
+  fi
+fi
+
+###############################################################################
 # Inicializar o Secret Service (keyring) na sessão do usuário
 ###############################################################################
 # Necessário para que o libsecret consiga armazenar credenciais

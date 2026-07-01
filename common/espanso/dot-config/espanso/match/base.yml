@@ -1,0 +1,25 @@
+matches:
+  - trigger: ";today"
+    replace: "{{data}}"
+    vars:
+      - name: data
+        type: date
+        params:
+          format: "%d/%m/%Y"
+
+  - trigger: ";now"
+    replace: "{{hora}}"
+    vars:
+      - name: hora
+        type: date
+        params:
+          format: "%d/%m/%Y %H:%M"
+
+  - trigger: ";email"
+    replace: "joaomarceloav@gmail.com"
+
+  - trigger: ";assino"
+    replace: |
+      Atenciosamente,
+      João Marcelo Araújo Vieira
+      Auditor Fiscal de Tributos Municipais — SMFA/BH
