@@ -1,0 +1,61 @@
+# Configuração do Ghostty — terminal para Linux e macOS
+# Migrada do kitty. Veja o README.md deste pacote para detalhes da migração.
+# Documentação oficial: https://ghostty.org/docs/config
+
+# --- Tema ---------------------------------------------------------------------
+# Catppuccin Mocha é um tema built-in do Ghostty (não precisa de arquivo
+# externo, como era o caso do kitty). Liste os disponíveis com:
+#   ghostty +list-themes
+theme = Catppuccin Mocha
+
+# --- Fonte --------------------------------------------------------------------
+# Ghostty já embute nerd fonts, mas mantemos a fonte explícita para garantir.
+font-family = JetBrainsMonoNL Nerd Font
+font-size = 14.0
+
+# --- Cursor -------------------------------------------------------------------
+cursor-style = block
+cursor-style-blink = false
+
+# --- Scrollback ---------------------------------------------------------------
+# Atenção: no Ghostty o limite é em BYTES, não em linhas como no kitty.
+# 1000000 bytes ≈ 10 mil linhas de ~100 caracteres.
+scrollback-limit = 1000000
+
+# --- Seleção / Clipboard ------------------------------------------------------
+copy-on-select = false
+
+# --- Janela -------------------------------------------------------------------
+# Padding interno (em points). O Ghostty separa X e Y (no kitty era um só).
+window-padding-x = 15
+window-padding-y = 15
+# Equivalente ao placement_strategy=center do kitty: distribui o padding
+# extra entre as quatro bordas para evitar desequilíbrio visual.
+window-padding-balance = true
+
+# --- Aparência ----------------------------------------------------------------
+background-opacity = 0.95
+# true usa a intensidade padrão recomendada (20). Também aceita um inteiro.
+background-blur = true
+
+# --- macOS --------------------------------------------------------------------
+# Esconde a barra de título, mas mantém o frame e os cantos arredondados da
+# janela (diferente de window-decoration=none, que remove tudo).
+# Como não há barra de título, arraste a janela com option+click na borda
+# (comportamento padrão do macOS, não específico do Ghostty).
+# Alternativa: transparent (mantém barra + botões semáforo).
+macos-titlebar-style = hidden
+macos-option-as-alt = true
+
+# --- Atalhos ------------------------------------------------------------------
+# Cmd (macOS) / Super (Linux) + 1..9 troca de aba.
+# No Ghostty o índice das abas começa em 1 (no kitty começava em 0).
+keybind = super+1=goto_tab:1
+keybind = super+2=goto_tab:2
+keybind = super+3=goto_tab:3
+keybind = super+4=goto_tab:4
+keybind = super+5=goto_tab:5
+keybind = super+6=goto_tab:6
+keybind = super+7=goto_tab:7
+keybind = super+8=goto_tab:8
+keybind = super+9=goto_tab:9

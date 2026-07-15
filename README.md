@@ -39,6 +39,8 @@ dotfiles/
 │   │       └── match/base.yml
 │   ├── kitty/
 │   │   └── dot-config/kitty/kitty.conf
+│   ├── ghostty/
+│   │   └── dot-config/ghostty/config
 │   ├── nvim/
 │   │   └── dot-config/nvim/
 │   └── tmux/
@@ -158,6 +160,13 @@ Shared config at `common/espanso/`. Triggers defined in `match/base.yml`:
 On macOS the install script symlinks `~/Library/Application Support/espanso` →
 `~/.config/espanso` so the same config works on both OSes. Reload with
 `espanso restart` after changes.
+
+### Ghostty (terminal)
+
+Config at `common/ghostty/dot-config/ghostty/config`. A single file works on
+both Linux and macOS (macOS also reads the XDG path). Reload with
+`Cmd+Shift+,` (macOS) or `Ctrl+Shift+,` (Linux). Theme is built-in
+(`theme = Catppuccin Mocha`), so no external theme file is needed.
 
 ### Tmux
 

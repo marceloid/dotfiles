@@ -40,6 +40,7 @@ alvo. Exemplos:
 | ---------------------------------------------- | -------------------------------- |
 | `common/tmux/dot-tmux.conf`                    | `~/.tmux.conf`                   |
 | `common/kitty/dot-config/kitty/kitty.conf`     | `~/.config/kitty/kitty.conf`     |
+| `common/ghostty/dot-config/ghostty/config`     | `~/.config/ghostty/config`       |
 | `macos/zsh/dot-zshrc`                          | `~/.zshrc`                       |
 | `linux/git/dot-gitconfig`                      | `~/.gitconfig`                   |
 
@@ -59,6 +60,7 @@ dotfiles/
 ├── .stow-local-ignore  # O que o stow ignora
 ├── common/             # Configs compartilhadas (Linux + macOS)
 │   ├── espanso/        # dot-config/espanso
+│   ├── ghostty/        # dot-config/ghostty
 │   ├── kitty/          # dot-config/kitty
 │   ├── nvim/           # dot-config/nvim (LazyVim)
 │   └── tmux/           # dot-tmux.conf + dot-config/tmux
@@ -91,6 +93,7 @@ ferramenta específica:
 | nvim     | `:source %` ou reiniciar o Neovim                 |
 | espanso  | `espanso restart`                                 |
 | kitty    | `Ctrl+Shift+F5` (ou reiniciar o kitty)            |
+| ghostty  | `Cmd/Ctrl+Shift+,` (ou reiniciar o ghostty)        |
 | hyprland | `hyprctl reload`                                  |
 | waybar   | `killall waybar && waybar &`                      |
 
