@@ -18,6 +18,9 @@ matches:
   - trigger: ";email"
     replace: "joaomarceloav@gmail.com"
 
+  - trigger: ";cpf"
+    replace: "99751429315"
+
   - trigger: ";assino"
     replace: |
       Atenciosamente,
