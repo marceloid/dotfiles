@@ -21,8 +21,17 @@ matches:
   - trigger: ";cpf"
     replace: "99751429315"
 
-  - trigger: ";assino"
+  - trigger: ";nome"
+    replace: "João Marcelo Araújo Vieira"
+
+  - trigger: ";ass"
     replace: |
       Atenciosamente,
       João Marcelo Araújo Vieira
       Auditor Fiscal de Tributos Municipais — SMFA/BH
+
+  - trigger: ";flacpf"
+    replace: "99223627320"
+
+  - trigger: ";flacnpj"
+    replace: "62233012000113"
