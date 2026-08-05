@@ -39,8 +39,6 @@ dotfiles/
 │   │       └── match/base.yml
 │   ├── kitty/
 │   │   └── dot-config/kitty/kitty.conf
-│   ├── ghostty/
-│   │   └── dot-config/ghostty/config
 │   ├── nvim/
 │   │   └── dot-config/nvim/
 │   └── tmux/
@@ -59,6 +57,8 @@ dotfiles/
 └── macos/                # macOS-specific configs
     ├── git/
     │   └── dot-gitconfig
+    ├── ghostty/
+    │   └── dot-config/ghostty/config
     └── zsh/
         └── dot-zshrc
 ```
@@ -163,10 +163,13 @@ On macOS the install script symlinks `~/Library/Application Support/espanso` →
 
 ### Ghostty (terminal)
 
-Config at `common/ghostty/dot-config/ghostty/config`. A single file works on
-both Linux and macOS (macOS also reads the XDG path). Reload with
-`Cmd+Shift+,` (macOS) or `Ctrl+Shift+,` (Linux). Theme is built-in
-(`theme = Catppuccin Mocha`), so no external theme file is needed.
+- **macOS:** config at `macos/ghostty/dot-config/ghostty/config`. Theme is
+  built-in (`theme = Catppuccin Mocha`), so no external theme file is needed.
+  Reload with `Cmd+Shift+,`.
+- **Linux (Omarchy):** Ghostty config is managed by Omarchy itself
+  (`~/.config/ghostty/config`, with dynamic theming via
+  `omarchy/current/theme/ghostty.conf`), so it is intentionally **not** stowed
+  from this repo to avoid conflicts.
 
 ### Tmux
 
