@@ -40,7 +40,7 @@ alvo. Exemplos:
 | ---------------------------------------------- | -------------------------------- |
 | `common/tmux/dot-tmux.conf`                    | `~/.tmux.conf`                   |
 | `common/kitty/dot-config/kitty/kitty.conf`     | `~/.config/kitty/kitty.conf`     |
-| `common/ghostty/dot-config/ghostty/config`     | `~/.config/ghostty/config`       |
+| `macos/ghostty/dot-config/ghostty/config` | `~/.config/ghostty/config`       |
 | `macos/zsh/dot-zshrc`                          | `~/.zshrc`                       |
 | `linux/git/dot-gitconfig`                      | `~/.gitconfig`                   |
 
@@ -60,7 +60,6 @@ dotfiles/
 ├── .stow-local-ignore  # O que o stow ignora
 ├── common/             # Configs compartilhadas (Linux + macOS)
 │   ├── espanso/        # dot-config/espanso
-│   ├── ghostty/        # dot-config/ghostty
 │   ├── kitty/          # dot-config/kitty
 │   ├── nvim/           # dot-config/nvim (LazyVim)
 │   └── tmux/           # dot-tmux.conf + dot-config/tmux
@@ -71,6 +70,7 @@ dotfiles/
 │   ├── app_launchers/  # dot-local/share/applications
 │   └── git/            # dot-gitconfig
 └── macos/              # Específico macOS
+    ├── ghostty/        # dot-config/ghostty
     ├── git/            # dot-gitconfig
     └── zsh/            # dot-zshrc
 ```
