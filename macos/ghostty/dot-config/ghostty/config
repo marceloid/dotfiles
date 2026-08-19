@@ -6,7 +6,7 @@
 # Catppuccin Mocha é um tema built-in do Ghostty (não precisa de arquivo
 # externo, como era o caso do kitty). Liste os disponíveis com:
 #   ghostty +list-themes
-theme = Catppuccin Mocha
+theme = Ultra Dark
 
 # --- Fonte --------------------------------------------------------------------
 # Ghostty já embute nerd fonts, mas mantemos a fonte explícita para garantir.
