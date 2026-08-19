@@ -1,0 +1,59 @@
+# herdr configuration (~/.config/herdr/config.toml)
+
+[theme]
+name = "terminal"
+
+auto_switch = false
+[terminal]
+shell_mode = "auto"
+new_cwd = "follow"
+
+[keys]
+# Prefixo no estilo tmux (Ctrl+a ou Ctrl+b)
+prefix = "ctrl+a"
+
+# Atalhos com prefixo (Ctrl+a seguido da tecla)
+help = "prefix+?"
+settings = "prefix+s"
+detach = "prefix+d"
+reload_config = "prefix+shift+r"
+workspace_picker = "prefix+w"
+goto = "prefix+g"
+new_workspace = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+
+# Abas / Janelas (Tabs)
+new_tab = "prefix+c"
+rename_tab = "prefix+shift+t"
+previous_tab = "prefix+p"
+next_tab = "prefix+n"
+switch_tab = "prefix+1..9"
+close_tab = "prefix+shift+x"
+
+# Painéis (Panes) - Navegação direta estilo Vim (sem precisar de prefixo)
+focus_pane_left = "ctrl+h"
+focus_pane_down = "ctrl+j"
+focus_pane_up = "ctrl+k"
+focus_pane_right = "ctrl+l"
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+
+# Divisão de painéis (Splits) - Idêntico ao padrão do Tmux
+split_vertical = "prefix+%"
+split_horizontal = "prefix+\""
+close_pane = "prefix+x"
+zoom = "prefix+z"
+resize_mode = "prefix+r"
+toggle_sidebar = "prefix+b"
+
+[ui]
+mouse_capture = true
+copy_on_select = true
+pane_borders = true
+pane_gaps = true
+tab_bar_position = "top"
+
+agent_panel_sort = "priority"
+[session]
+resume_agents_on_restore = true

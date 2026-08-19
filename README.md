@@ -37,6 +37,8 @@ dotfiles/
 │   │   └── dot-config/espanso/
 │   │       ├── config/default.yml
 │   │       └── match/base.yml
+│   ├── herdr/
+│   │   └── dot-config/herdr/config.toml
 │   ├── kitty/
 │   │   └── dot-config/kitty/kitty.conf
 │   ├── nvim/
