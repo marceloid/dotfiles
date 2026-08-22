@@ -55,20 +55,16 @@ alvo. Exemplos:
 
 ```
 dotfiles/
-├── install.sh          # Bootstrap: detecta OS, stowa tudo, ajusta espanso/libsecret
+├── install.sh          # Bootstrap: detecta OS, stowa tudo, ajusta espanso/gh
 ├── .stowrc             # Opções default do stow (--dotfiles, -t ~)
 ├── .stow-local-ignore  # O que o stow ignora
 ├── common/             # Configs compartilhadas (Linux + macOS)
 │   ├── espanso/        # dot-config/espanso
-│   ├── kitty/          # dot-config/kitty
+│   ├── herdr/          # dot-config/herdr
 │   ├── nvim/           # dot-config/nvim (LazyVim)
 │   └── tmux/           # dot-tmux.conf + dot-config/tmux
 ├── linux/              # Específico Linux
-│   ├── hypr/           # dot-config/hypr (Hyprland — ver skill `omarchy`)
-│   ├── waybar/         # dot-config/waybar
-│   ├── copyq/          # dot-config/copyq
-│   ├── app_launchers/  # dot-local/share/applications
-│   └── git/            # dot-gitconfig
+│   └── git/            # dot-gitconfig (identidade + prefs; defaults vêm do Omarchy)
 └── macos/              # Específico macOS
     ├── aerospace/      # dot-config/aerospace (Tiling WM)
     ├── ghostty/        # dot-config/ghostty
@@ -76,9 +72,11 @@ dotfiles/
     └── zsh/            # dot-zshrc
 ```
 
-> **Atenção:** o `linux/hypr/` contém config do Hyprland/Omarchy. Edições
-> voltadas ao usuário final nesse diretório exigem carregar a skill `omarchy`
-> antes.
+> **Omarchy 4:** configs do Hyprland (`~/.config/hypr/*.lua`), do shell/barra
+> (`~/.config/omarchy/shell.json`), dos terminais no Linux e os defaults do git
+> são gerenciados pelo próprio Omarchy e **não** moram neste repo. Para editar
+> essas configs, mexa direto nos arquivos do sistema (no caso do Hyprland,
+> carregue a skill `omarchy` antes).
 
 ---
 
@@ -94,10 +92,8 @@ ferramenta específica:
 | tmux      | `tmux source-file ~/.tmux.conf` (ou prefix + `r`) |
 | nvim      | `:source %` ou reiniciar o Neovim                 |
 | espanso   | `espanso restart`                                 |
-| kitty     | `Ctrl+Shift+F5` (ou reiniciar o kitty)            |
-| ghostty   | `Cmd/Ctrl+Shift+,` (ou reiniciar o ghostty)        |
-| hyprland  | `hyprctl reload`                                  |
-| waybar    | `killall waybar && waybar &`                      |
+| herdr     | `prefix+shift+r` (reload_config) ou reiniciar     |
+| ghostty (macOS) | `Cmd+Shift+,` (ou reiniciar o ghostty)     |
 
 ### (Re)stowar / criar novos links
 - Aplicar tudo (comum + OS): `./install.sh`
@@ -132,8 +128,9 @@ O `install.sh` é idempotente.
 2. **Plugins do tmux (TPM):** vivem em `common/tmux/dot-tmux/plugins/` e estão
    no `.gitignore` do pacote — **não versioná-los**. O `dot-tmux.conf` clona o
    TPM automaticamente se faltar.
-3. **git-credential-libsecret (Arch):** o `install.sh` compila o helper no Arch
-   via `make`. Não comita binários.
+3. **Credenciais do GitHub:** no Omarchy 4 o `gh` faz o papel de credential
+   helper (`gh auth setup-git`, chamado pelo `install.sh`). Não versionar
+   helpers com caminhos absolutos de máquina no gitconfig.
 4. **Editar alvo em `~/` em vez da fonte:** faz o symlink virar arquivo comum e
    quebra o gerenciamento pelo stow. Sempre confirme o caminho antes de editar.
 5. **`.stow-local-ignore`** exclui `scripts`, `install.sh`, `README.md`, etc. do

@@ -1,20 +1,24 @@
+# Identidade e preferências pessoais.
+# No Omarchy 4, os defaults (aliases, rerere, etc.) vêm de
+# /usr/share/omarchy/config/git/config e as credenciais são gerenciadas
+# pelo gh (`gh auth setup-git`), portanto não versionamos nada disso aqui.
+[user]
+	name = João Marcelo
+	email = joaomarceloav@gmail.com
 [pull]
 	rebase = true
 [init]
 	defaultBranch = main
-[user]
-	name = João Marcelo
-	email = joaomarceloav@gmail.com
 [core]
-    pager = less
-[pager]
-    diff = kitty +kitten diff
-    log = kitty +kitten diff
-    show = kitty +kitten diff
-[credential]
-    helper = libsecret
+	pager = less
 [filter "lfs"]
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[credential "https://github.com"]
+	helper = 
+	helper = !/home/marceloid/.local/share/mise/installs/gh/2.98.0/gh_2.98.0_linux_arm64/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/home/marceloid/.local/share/mise/installs/gh/2.98.0/gh_2.98.0_linux_arm64/bin/gh auth git-credential

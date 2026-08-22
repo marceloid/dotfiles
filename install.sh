@@ -72,23 +72,16 @@ else
 fi
 
 ###############################################################################
-# Arch Linux: instalar dependências e garantir o helper git-credential-libsecret
+# Linux: configurar credenciais do GitHub via gh CLI
 ###############################################################################
-# Só executa em Linux e apenas se pacman existir (Arch / derivados)
-if [[ "$OS" == "linux" ]]; then
-  if command -v pacman >/dev/null; then
-    echo "📦 Instalando dependências do libsecret (Arch)..."
-
-    # Garante que git e libsecret estejam instalados
-    sudo pacman -S --needed git libsecret
-
-    # No Arch, o helper não vem pronto: compila manualmente se não existir
-    if [[ ! -x /usr/local/bin/git-credential-libsecret ]]; then
-      echo "🔧 Compilando git-credential-libsecret..."
-      cd /usr/share/git/credential/libsecret
-      sudo make
-      sudo install -m755 git-credential-libsecret /usr/local/bin/
-    fi
+# No Omarchy 4 o gh gerencia as credenciais do git para o GitHub.
+# `gh auth setup-git` registra o credential helper no config global do git.
+if [[ "$OS" == "linux" ]] && command -v gh >/dev/null; then
+  if gh auth status >/dev/null 2>&1; then
+    echo "🔐 Configurando credential helper do git via gh..."
+    gh auth setup-git
+  else
+    echo "⚠️  gh instalado mas não autenticado. Rode 'gh auth login' e depois 'gh auth setup-git'."
   fi
 fi
 

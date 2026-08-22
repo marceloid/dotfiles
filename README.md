@@ -39,31 +39,21 @@ dotfiles/
 │   │       └── match/base.yml
 │   ├── herdr/
 │   │   └── dot-config/herdr/config.toml
-│   ├── kitty/
-│   │   └── dot-config/kitty/kitty.conf
 │   ├── nvim/
 │   │   └── dot-config/nvim/
 │   └── tmux/
 │       └── dot-tmux.conf
 ├── linux/                # Linux-specific configs
-│   ├── app_launchers/
-│   │   └── dot-local/share/applications/
-│   ├── copyq/
-│   │   └── dot-config/copyq/
-│   ├── git/
-│   │   └── dot-gitconfig
-│   ├── hypr/
-│   │   └── dot-config/hypr/
-│   └── waybar/
-│       └── dot-config/waybar/
+│   └── git/
+│       └── dot-gitconfig (identidade + preferências; defaults vêm do Omarchy)
 └── macos/                # macOS-specific configs
     ├── aerospace/
     │   └── dot-config/aerospace/
     │       └── aerospace.toml
-    ├── git/
-    │   └── dot-gitconfig
     ├── ghostty/
     │   └── dot-config/ghostty/config
+    ├── git/
+    │   └── dot-gitconfig
     └── zsh/
         └── dot-zshrc
 ```
@@ -136,16 +126,22 @@ This will unstow `common/` and your OS-specific dotfiles.
   * `linux/` → Linux-specific configs
   * `macos/` → macOS-specific configs
 
-* Symlinks are created relative to `$HOME`, for example:
-
-``` bash
-~/.zshrc -> ~/dotfiles/common/zsh/dot-zshrc
-~/.config/nvim/init.lua -> ~/dotfiles/common/nvim/dot-config/nvim/init.lua
-~/.config/kitty/kitty.conf -> ~/dotfiles/common/kitty/dot-config/kitty/kitty.conf
-~/.config/espanso/match/base.yml -> ~/dotfiles/common/espanso/dot-config/espanso/match/base.yml
-```
-
 * The script is **idempotent**: running it multiple times will not duplicate links or overwrite existing files.
+
+## Omarchy 4
+
+Since **Omarchy 4**, the following configs are managed by Omarchy itself and are
+**intentionally not versioned here**:
+
+* **Hyprland** → `~/.config/hypr/*.lua` (new Lua format; personal overrides
+  live directly there, see `omarchy` CLI / `omarchy refresh hyprland`)
+* **Shell/bar (antiga waybar)** → Omarchy Shell, via `~/.config/omarchy/shell.json`
+* **Ghostty/terminais no Linux** → `~/.config/ghostty/` com theming dinâmico
+* **Defaults do git (aliases, rerere, etc.)** → `/usr/share/omarchy/config/git/config`
+* **Webapps (.desktop)** → gerenciados pelo Omarchy (`omarchy launch webapp ...`)
+
+Por isso os antigos pacotes `linux/hypr`, `linux/waybar`, `linux/copyq`,
+`linux/app_launchers` e `common/kitty` foram removidos do repo.
 
 ---
 
