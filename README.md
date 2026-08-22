@@ -57,6 +57,9 @@ dotfiles/
 │   └── waybar/
 │       └── dot-config/waybar/
 └── macos/                # macOS-specific configs
+    ├── aerospace/
+    │   └── dot-config/aerospace/
+    │       └── aerospace.toml
     ├── git/
     │   └── dot-gitconfig
     ├── ghostty/
@@ -147,6 +150,31 @@ This will unstow `common/` and your OS-specific dotfiles.
 ---
 
 ## Configured Apps
+
+### AeroSpace (tiling window manager)
+
+Config at `macos/aerospace/dot-config/aerospace/aerospace.toml`. Key highlights:
+
+* **Vim-style navigation:** `Alt + H / J / K / L` to focus left/down/up/right.
+* **Move windows:** `Alt + Shift + H / J / K / L` (or HyperKey: `Cmd+Ctrl+Alt+Shift + H/J/K/L`).
+* **Workspaces:**
+  * Numbers: `Alt + 1..9` (Switch) / `Alt + Shift + 1..9` (Move window)
+  * Dedicated letters:
+    * `Alt + B`: Browser (Chrome, Safari, Firefox, Edge)
+    * `Alt + T`: Terminal (Ghostty, Kitty, iTerm)
+    * `Alt + N`: Notes (Obsidian, Notion, Evernote)
+    * `Alt + C`: Communication (Telegram, WhatsApp, Slack)
+    * `Alt + D`: Dev / Docs / Database (DBeaver, VS Code, Excel, Word, Acrobat)
+    * `Alt + E`: Explorer (Finder)
+    * `Alt + M`: Music / Media (Spotify, VLC)
+    * `Alt + V`: Video / Production (OBS Studio, CapCut, HandBrake)
+* **Layouts:** `Alt + /` (tiles), `Alt + ,` (accordion), `Alt + Shift + F` (fullscreen).
+* **Modes:**
+  * Resize mode: `Alt + Shift + R` (`H/J/K/L`, `-`/`+`, `B` to balance, `Enter`/`Esc` to exit).
+  * Service mode: `Alt + Shift + ;` (`Esc` reload config, `R` flatten tree, `F` toggle floating/tiling, `H/J/K/L` join-with).
+* **Automatic floating windows:** System Settings, Keychain, Activity Monitor, Calculator, Bitwarden, AppCleaner, Shottr, Wispr Flow, Tailscale, etc.
+
+Reload with `aerospace reload-config` or `Alt + Shift + ;` then `Esc` (also reloads automatically on save).
 
 ### Espanso (text expander)
 

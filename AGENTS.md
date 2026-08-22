@@ -70,6 +70,7 @@ dotfiles/
 │   ├── app_launchers/  # dot-local/share/applications
 │   └── git/            # dot-gitconfig
 └── macos/              # Específico macOS
+    ├── aerospace/      # dot-config/aerospace (Tiling WM)
     ├── ghostty/        # dot-config/ghostty
     ├── git/            # dot-gitconfig
     └── zsh/            # dot-zshrc
@@ -87,15 +88,16 @@ dotfiles/
 Só editar a fonte. Para configs que são lidas em runtime, recarregue a
 ferramenta específica:
 
-| App      | Como recarregar                                  |
-| -------- | ------------------------------------------------ |
-| tmux     | `tmux source-file ~/.tmux.conf` (ou prefix + `r`) |
-| nvim     | `:source %` ou reiniciar o Neovim                 |
-| espanso  | `espanso restart`                                 |
-| kitty    | `Ctrl+Shift+F5` (ou reiniciar o kitty)            |
-| ghostty  | `Cmd/Ctrl+Shift+,` (ou reiniciar o ghostty)        |
-| hyprland | `hyprctl reload`                                  |
-| waybar   | `killall waybar && waybar &`                      |
+| App       | Como recarregar                                  |
+| --------- | ------------------------------------------------ |
+| aerospace | `aerospace reload-config` (ou Alt+Shift+; -> Esc) |
+| tmux      | `tmux source-file ~/.tmux.conf` (ou prefix + `r`) |
+| nvim      | `:source %` ou reiniciar o Neovim                 |
+| espanso   | `espanso restart`                                 |
+| kitty     | `Ctrl+Shift+F5` (ou reiniciar o kitty)            |
+| ghostty   | `Cmd/Ctrl+Shift+,` (ou reiniciar o ghostty)        |
+| hyprland  | `hyprctl reload`                                  |
+| waybar    | `killall waybar && waybar &`                      |
 
 ### (Re)stowar / criar novos links
 - Aplicar tudo (comum + OS): `./install.sh`

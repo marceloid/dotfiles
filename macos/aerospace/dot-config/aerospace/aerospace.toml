@@ -1,0 +1,403 @@
+# =============================================================================
+# Configuração do AeroSpace — Tiling Window Manager para macOS
+# =============================================================================
+# Baseada nas recomendações do vídeo de Josean Martinez e adaptada com as
+# especificações completas para o ecossistema e fluxo de trabalho do dotfiles.
+#
+# Documentação oficial: https://nikitabobko.github.io/AeroSpace/guide
+# Comandos disponíveis: https://nikitabobko.github.io/AeroSpace/commands
+# =============================================================================
+
+# Versão do schema de configuração do AeroSpace
+config-version = 2
+
+# Recarregamento automático ao salvar este arquivo de configuração
+auto-reload-config = true
+
+# Iniciar o AeroSpace automaticamente com o login do macOS
+start-at-login = true
+
+# Comandos de inicialização opcionais (ex: após login / boot do serviço)
+after-startup-command = []
+
+# --- Normalizações de Árvore -------------------------------------------------
+# Evita containers desnecessários ou redundantes na árvore de nós
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# --- Layouts e Comportamento Padrão ------------------------------------------
+# Layout padrão da raiz: 'tiles' (ladrilhado) ou 'accordion' (empilhado)
+default-root-container-layout = 'tiles'
+
+# Orientação padrão: 'auto' (horizontal em telas largas, vertical em telas verticais)
+default-root-container-orientation = 'auto'
+
+# Padding visível no modo accordion (para enxergar as bordas das outras janelas)
+accordion-padding = 30
+
+# Mapeamento do teclado
+key-mapping.preset = 'qwerty'
+
+# Workspaces persistentes que permanecem ativos mesmo sem janelas abertas
+persistent-workspaces = [
+  "1", "2", "3", "4", "5", "6", "7", "8", "9",
+  "B", "T", "N", "C", "D", "E", "M", "V"
+]
+
+# --- Foco e Mouse -------------------------------------------------------------
+# Move o cursor suavemente para o centro da janela/monitor que recebeu foco
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+on-focus-changed = ['move-mouse window-lazy-center']
+
+# --- Gaps (Espaçamentos em pixels) -------------------------------------------
+[gaps]
+inner.horizontal = 10
+inner.vertical   = 10
+outer.left       = 10
+outer.bottom     = 10
+outer.top        = 10
+outer.right      = 10
+
+# =============================================================================
+# MODO PRINCIPAL (mode.main)
+# =============================================================================
+[mode.main.binding]
+
+# --- Navegação / Troca de Foco (Vim motions) ---------------------------------
+alt-h = 'focus left'
+alt-j = 'focus down'
+alt-k = 'focus up'
+alt-l = 'focus right'
+
+# --- Mover Janelas no Layout (Alt + Shift ou HyperKey) -----------------------
+alt-shift-h = 'move left'
+alt-shift-j = 'move down'
+alt-shift-k = 'move up'
+alt-shift-l = 'move right'
+
+cmd-ctrl-alt-shift-h = 'move left'
+cmd-ctrl-alt-shift-j = 'move down'
+cmd-ctrl-alt-shift-k = 'move up'
+cmd-ctrl-alt-shift-l = 'move right'
+
+# --- Alternar Tipo de Layout -------------------------------------------------
+alt-slash = 'layout tiles horizontal vertical'
+alt-comma = 'layout accordion horizontal vertical'
+
+# --- Tela Cheia (Fullscreen) -------------------------------------------------
+alt-shift-f = 'fullscreen'
+cmd-ctrl-alt-shift-f = 'fullscreen'
+
+# --- Navegação de Workspaces Numéricos (Alt + 1..9) --------------------------
+alt-1 = 'workspace 1'
+alt-2 = 'workspace 2'
+alt-3 = 'workspace 3'
+alt-4 = 'workspace 4'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
+
+# --- Navegação de Workspaces Temáticos por Letras (Alt + Letra) --------------
+alt-b = 'workspace B' # Browser / Navegador Web
+alt-t = 'workspace T' # Terminal (Ghostty, Kitty, iTerm)
+alt-n = 'workspace N' # Notes / Conhecimento (Obsidian, Notion)
+alt-c = 'workspace C' # Chat / Comunicação (Telegram, WhatsApp, Slack)
+alt-d = 'workspace D' # Dev / Database / Docs (DBeaver, VS Code, Excel, Word, Acrobat)
+alt-e = 'workspace E' # Explorer (Finder)
+alt-m = 'workspace M' # Media / Música (Spotify, VLC)
+alt-v = 'workspace V' # Video / Produção (OBS Studio, CapCut)
+
+# --- Mover Janela Atual para Workspace (Alt + Shift + Tecla) -----------------
+alt-shift-1 = 'move-node-to-workspace 1'
+alt-shift-2 = 'move-node-to-workspace 2'
+alt-shift-3 = 'move-node-to-workspace 3'
+alt-shift-4 = 'move-node-to-workspace 4'
+alt-shift-5 = 'move-node-to-workspace 5'
+alt-shift-6 = 'move-node-to-workspace 6'
+alt-shift-7 = 'move-node-to-workspace 7'
+alt-shift-8 = 'move-node-to-workspace 8'
+alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-b = 'move-node-to-workspace B'
+alt-shift-t = 'move-node-to-workspace T'
+alt-shift-n = 'move-node-to-workspace N'
+alt-shift-c = 'move-node-to-workspace C'
+alt-shift-d = 'move-node-to-workspace D'
+alt-shift-e = 'move-node-to-workspace E'
+alt-shift-m = 'move-node-to-workspace M'
+alt-shift-v = 'move-node-to-workspace V'
+
+# --- Mover Janela Atual para Workspace (HyperKey) ----------------------------
+cmd-ctrl-alt-shift-1 = 'move-node-to-workspace 1'
+cmd-ctrl-alt-shift-2 = 'move-node-to-workspace 2'
+cmd-ctrl-alt-shift-3 = 'move-node-to-workspace 3'
+cmd-ctrl-alt-shift-4 = 'move-node-to-workspace 4'
+cmd-ctrl-alt-shift-5 = 'move-node-to-workspace 5'
+cmd-ctrl-alt-shift-6 = 'move-node-to-workspace 6'
+cmd-ctrl-alt-shift-7 = 'move-node-to-workspace 7'
+cmd-ctrl-alt-shift-8 = 'move-node-to-workspace 8'
+cmd-ctrl-alt-shift-9 = 'move-node-to-workspace 9'
+cmd-ctrl-alt-shift-b = 'move-node-to-workspace B'
+cmd-ctrl-alt-shift-t = 'move-node-to-workspace T'
+cmd-ctrl-alt-shift-n = 'move-node-to-workspace N'
+cmd-ctrl-alt-shift-c = 'move-node-to-workspace C'
+cmd-ctrl-alt-shift-d = 'move-node-to-workspace D'
+cmd-ctrl-alt-shift-e = 'move-node-to-workspace E'
+cmd-ctrl-alt-shift-m = 'move-node-to-workspace M'
+cmd-ctrl-alt-shift-v = 'move-node-to-workspace V'
+
+# --- Alternância e Monitores -------------------------------------------------
+# Alterna rapidamente entre o workspace atual e o anterior
+alt-tab = 'workspace-back-and-forth'
+
+# Move o workspace atual para o próximo monitor
+alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+cmd-ctrl-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+
+# --- Acesso aos Sub-Modos ----------------------------------------------------
+alt-shift-r = 'mode resize'
+cmd-ctrl-alt-shift-r = 'mode resize'
+
+alt-shift-semicolon = 'mode service'
+cmd-ctrl-alt-shift-semicolon = 'mode service'
+
+# =============================================================================
+# MODO REDIMENSIONAMENTO (mode.resize)
+# =============================================================================
+[mode.resize.binding]
+h = 'resize width -50'
+j = 'resize height +50'
+k = 'resize height -50'
+l = 'resize width +50'
+b = 'balance-sizes'
+
+# Redimensionamento inteligente proporcional
+minus = 'resize smart -50'
+equal = 'resize smart +50'
+
+# Retornar ao modo principal
+enter = 'mode main'
+esc = 'mode main'
+
+# =============================================================================
+# MODO DE SERVIÇO / AGRUPAMENTO (mode.service)
+# =============================================================================
+[mode.service.binding]
+# Recarrega o arquivo toml e volta ao modo principal
+esc = ['reload-config', 'mode main']
+enter = 'mode main'
+
+# Reseta e nivela a árvore de janelas do workspace
+r = ['flatten-workspace-tree', 'mode main']
+
+# Alterna entre janela flutuante e ladrilhada
+f = ['layout floating tiling', 'mode main']
+
+# Fecha todas as outras janelas do workspace exceto a em foco
+backspace = ['close-all-windows-but-current', 'mode main']
+
+# Agrupar / Unir janela com o container adjacente (join-with)
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
+
+alt-shift-h = ['join-with left', 'mode main']
+alt-shift-j = ['join-with down', 'mode main']
+alt-shift-k = ['join-with up', 'mode main']
+alt-shift-l = ['join-with right', 'mode main']
+
+# =============================================================================
+# REGRAS AUTOMÁTICAS DE JANELAS (on-window-detected)
+# =============================================================================
+
+# --- Terminal (Workspace T) --------------------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace T'
+
+[[on-window-detected]]
+if.app-id = 'com.googlecode.iterm2'
+run = 'move-node-to-workspace T'
+
+# --- Navegadores (Workspace B) -----------------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Safari'
+run = 'move-node-to-workspace B'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.edgemac'
+run = 'move-node-to-workspace B'
+
+# --- Notas e Conhecimento (Workspace N) --------------------------------------
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
+run = 'move-node-to-workspace N'
+
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace N'
+
+[[on-window-detected]]
+if.app-id = 'com.evernote.Evernote'
+run = 'move-node-to-workspace N'
+
+# --- Chat e Comunicação (Workspace C) ----------------------------------------
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = 'move-node-to-workspace C'
+
+[[on-window-detected]]
+if.app-id = 'com.tinyspeck.slackmacgap'
+run = 'move-node-to-workspace C'
+
+# --- Desenvolvimento e Documentos (Workspace D) ------------------------------
+[[on-window-detected]]
+if.app-id = 'org.jkiss.dbeaver.core.product'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Excel'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Word'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.Powerpoint'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.adobe.Acrobat.Pro'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace D'
+
+[[on-window-detected]]
+if.app-id = 'dev.zed.Zed'
+run = 'move-node-to-workspace D'
+
+# --- Mídia e Música (Workspace M) --------------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = 'move-node-to-workspace M'
+
+[[on-window-detected]]
+if.app-id = 'org.videolan.vlc'
+run = 'move-node-to-workspace M'
+
+# --- Explorer / Finder (Workspace E) -----------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'move-node-to-workspace E'
+
+# --- Vídeo / Edição (Workspace V) --------------------------------------------
+[[on-window-detected]]
+if.app-id = 'com.obsproject.obs-studio'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'com.lemon.lvoverseas'
+run = 'move-node-to-workspace V'
+
+[[on-window-detected]]
+if.app-id = 'fr.handbrake.HandBrake'
+run = 'move-node-to-workspace V'
+
+# --- Janelas que Devem Abrir em Modo Flutuante (Floating) --------------------
+# Preferências do sistema, utilitários, painéis rápidos e autenticadores
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.keychainaccess'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.calculator'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.bitwarden.desktop'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'net.freemacsoft.AppCleaner'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.alienator88.Pearcleaner'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'cc.ffitch.shottr'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.electron.wispr-flow'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'io.tailscale.ipn.macos'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'ch.protonvpn.mac'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.tunnelbear.mac.TunnelBear'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'pro.betterdisplay.BetterDisplay'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.p0deje.Maccy'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.jordanbaird.Ice'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.nuebling.mac-mouse-fix'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'org.demoiselle.signer.serpro.desktop.Main'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.aeteurope.tokenadmin'
+run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'br.jus.cnj.pje.office'
+run = 'layout floating'
