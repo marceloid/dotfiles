@@ -44,6 +44,8 @@ dotfiles/
 │   └── tmux/
 │       └── dot-tmux.conf
 ├── linux/                # Linux-specific configs
+│   ├── ghostty/
+│   │   └── dot-config/ghostty/config
 │   └── git/
 │       └── dot-gitconfig (identidade + preferências; defaults vêm do Omarchy)
 └── macos/                # macOS-specific configs
@@ -136,7 +138,6 @@ Since **Omarchy 4**, the following configs are managed by Omarchy itself and are
 * **Hyprland** → `~/.config/hypr/*.lua` (new Lua format; personal overrides
   live directly there, see `omarchy` CLI / `omarchy refresh hyprland`)
 * **Shell/bar (antiga waybar)** → Omarchy Shell, via `~/.config/omarchy/shell.json`
-* **Ghostty/terminais no Linux** → `~/.config/ghostty/` com theming dinâmico
 * **Defaults do git (aliases, rerere, etc.)** → `/usr/share/omarchy/config/git/config`
 * **Webapps (.desktop)** → gerenciados pelo Omarchy (`omarchy launch webapp ...`)
 
@@ -189,13 +190,14 @@ On macOS the install script symlinks `~/Library/Application Support/espanso` →
 
 ### Ghostty (terminal)
 
-- **macOS:** config at `macos/ghostty/dot-config/ghostty/config`. Theme is
-  built-in (`theme = Catppuccin Mocha`), so no external theme file is needed.
-  Reload with `Cmd+Shift+,`.
-- **Linux (Omarchy):** Ghostty config is managed by Omarchy itself
-  (`~/.config/ghostty/config`, with dynamic theming via
-  `omarchy/current/theme/ghostty.conf`), so it is intentionally **not** stowed
-  from this repo to avoid conflicts.
+- **macOS:** config em `macos/ghostty/dot-config/ghostty/config`. Tema embutido
+  (`theme = Ultra Dark`), fonte `JetBrainsMonoNL Nerd Font` tamanho 14, atalhos
+  com Super (`Cmd+1..9` para abas). Recarregue com `Cmd+Shift+,`.
+- **Linux (Omarchy / Hyprland):** config em `linux/ghostty/dot-config/ghostty/config`.
+  Importa o tema dinâmico do Omarchy (`~/.local/state/omarchy/current/theme/ghostty.conf`),
+  usa backend `epoll` para Wayland, atalhos CSI-u, fonte tamanho 14 e navegação
+  de abas via `Alt+1..9` (sem conflitar com o Hyprland). Recarregue com
+  `omarchy restart terminal` ou reiniciando o Ghostty.
 
 ### Tmux
 

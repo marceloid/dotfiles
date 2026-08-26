@@ -41,6 +41,7 @@ alvo. Exemplos:
 | `common/tmux/dot-tmux.conf`                    | `~/.tmux.conf`                   |
 | `common/kitty/dot-config/kitty/kitty.conf`     | `~/.config/kitty/kitty.conf`     |
 | `macos/ghostty/dot-config/ghostty/config` | `~/.config/ghostty/config`       |
+| `linux/ghostty/dot-config/ghostty/config` | `~/.config/ghostty/config`       |
 | `macos/zsh/dot-zshrc`                          | `~/.zshrc`                       |
 | `linux/git/dot-gitconfig`                      | `~/.gitconfig`                   |
 
@@ -64,6 +65,7 @@ dotfiles/
 │   ├── nvim/           # dot-config/nvim (LazyVim)
 │   └── tmux/           # dot-tmux.conf + dot-config/tmux
 ├── linux/              # Específico Linux
+│   ├── ghostty/        # dot-config/ghostty (Omarchy theme dinâmico + atalhos Linux)
 │   └── git/            # dot-gitconfig (identidade + prefs; defaults vêm do Omarchy)
 └── macos/              # Específico macOS
     ├── aerospace/      # dot-config/aerospace (Tiling WM)
@@ -73,10 +75,11 @@ dotfiles/
 ```
 
 > **Omarchy 4:** configs do Hyprland (`~/.config/hypr/*.lua`), do shell/barra
-> (`~/.config/omarchy/shell.json`), dos terminais no Linux e os defaults do git
-> são gerenciados pelo próprio Omarchy e **não** moram neste repo. Para editar
-> essas configs, mexa direto nos arquivos do sistema (no caso do Hyprland,
-> carregue a skill `omarchy` antes).
+> (`~/.config/omarchy/shell.json`) e os defaults do git são gerenciados pelo
+> próprio Omarchy e **não** moram neste repo. Para editar essas configs, mexa direto
+> nos arquivos do sistema (no caso do Hyprland, carregue a skill `omarchy` antes).
+> O Ghostty no Linux (`linux/ghostty`) importa o arquivo de tema gerado pelo
+> Omarchy para manter a troca dinâmica de cores.
 
 ---
 
@@ -94,6 +97,7 @@ ferramenta específica:
 | espanso   | `espanso restart`                                 |
 | herdr     | `prefix+shift+r` (reload_config) ou reiniciar     |
 | ghostty (macOS) | `Cmd+Shift+,` (ou reiniciar o ghostty)     |
+| ghostty (Linux) | `omarchy restart terminal` (ou reiniciar)  |
 
 ### (Re)stowar / criar novos links
 - Aplicar tudo (comum + OS): `./install.sh`
