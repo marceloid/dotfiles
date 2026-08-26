@@ -18,6 +18,8 @@ window-padding-balance = true
 confirm-close-surface = false
 resize-overlay = never
 gtk-toolbar-style = flat
+# Transparência sutil, igual à config do macOS
+background-opacity = 0.95
 
 # --- Cursor -------------------------------------------------------------------
 cursor-style = "block"
@@ -40,6 +42,7 @@ shell-integration-features = no-cursor,ssh-env
 async-backend = epoll
 
 # --- Atalhos de Teclado -------------------------------------------------------
+keybind = f11=toggle_fullscreen
 keybind = shift+insert=paste_from_clipboard
 keybind = control+insert=copy_to_clipboard
 
