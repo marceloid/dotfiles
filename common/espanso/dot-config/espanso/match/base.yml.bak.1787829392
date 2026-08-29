@@ -1,5 +1,5 @@
 matches:
-  - triggers: [";today", "/today"]
+  - trigger: ";today"
     replace: "{{data}}"
     vars:
       - name: data
@@ -7,7 +7,7 @@ matches:
         params:
           format: "%d/%m/%Y"
 
-  - triggers: [";now", "/now"]
+  - trigger: ";now"
     replace: "{{hora}}"
     vars:
       - name: hora
@@ -15,23 +15,23 @@ matches:
         params:
           format: "%d/%m/%Y %H:%M"
 
-  - triggers: [";email", "/email"]
+  - trigger: ";email"
     replace: "joaomarceloav@gmail.com"
 
-  - triggers: [";cpf", "/cpf"]
+  - trigger: ";cpf"
     replace: "99751429315"
 
-  - triggers: [";nome", "/nome"]
+  - trigger: ";nome"
     replace: "João Marcelo Araújo Vieira"
 
-  - triggers: [";ass", "/ass"]
+  - trigger: ";ass"
     replace: |
       Atenciosamente,
       João Marcelo Araújo Vieira
       Auditor Fiscal de Tributos Municipais — SMFA/BH
 
-  - triggers: [";flacpf", "/flacpf"]
+  - trigger: ";flacpf"
     replace: "99223627320"
 
-  - triggers: [";flacnpj", "/flacnpj"]
+  - trigger: ";flacnpj"
     replace: "62233012000113"

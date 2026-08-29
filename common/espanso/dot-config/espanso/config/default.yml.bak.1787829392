@@ -2,7 +2,6 @@
 # Docs: https://espanso.org/docs/configuration/
 # Match files live in ../match/
 keyboard_layout:
-  layout: "us"
-  variant: "intl"
+  layout: "br"
 
 search_shortcut: "ALT+SHIFT+SPACE"
