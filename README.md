@@ -46,8 +46,10 @@ dotfiles/
 ├── linux/                # Linux-specific configs
 │   ├── ghostty/
 │   │   └── dot-config/ghostty/config
-│   └── git/
-│       └── dot-gitconfig (identidade + preferências; defaults vêm do Omarchy)
+│   ├── git/
+│   │   └── dot-gitconfig (identidade + preferências; defaults vêm do Omarchy)
+│   └── hyprmoncfg/
+│       └── dot-config/hyprmoncfg/profiles/ (perfis de monitores do Hyprland)
 └── macos/                # macOS-specific configs
     ├── aerospace/
     │   └── dot-config/aerospace/
@@ -198,6 +200,15 @@ On macOS the install script symlinks `~/Library/Application Support/espanso` →
   usa backend `epoll` para Wayland, atalhos CSI-u, fonte tamanho 14 e navegação
   de abas via `Alt+1..9` (sem conflitar com o Hyprland). Recarregue com
   `omarchy restart terminal` ou reiniciando o Ghostty.
+
+### hyprmoncfg (perfis de monitores — Linux/Omarchy)
+
+Perfis em `linux/hyprmoncfg/dot-config/hyprmoncfg/profiles/`. O app
+(`hyprmoncfg-bin`, AUR) e o painel na barra do Omarchy (plugin `crmne.hyprmoncfg`)
+gerenciam o layout de monitores e os workspaces persistentes, com troca
+automática de perfil ao conectar/desconectar monitores. Perfis são amarrados
+por EDID/descrição do monitor (sobrevivem à troca de conector). Editar pelo
+TUI (`hyprmoncfg`) ou pelo painel já reflete neste repo via symlink do stow.
 
 ### Tmux
 
