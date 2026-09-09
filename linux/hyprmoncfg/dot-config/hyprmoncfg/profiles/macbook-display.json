@@ -1,0 +1,49 @@
+{
+  "name": "Macbook Display",
+  "created_at": "2026-09-04T18:05:01.042050742Z",
+  "updated_at": "2026-09-06T00:33:41.394607561Z",
+  "outputs": [
+    {
+      "key": "edp-1",
+      "match_key": "edp-1",
+      "name": "eDP-1",
+      "enabled": true,
+      "mode": "2560x1664@60.00Hz",
+      "width": 2560,
+      "height": 1664,
+      "refresh": 60,
+      "x": 0,
+      "y": 0,
+      "scale": 2,
+      "vrr": 2,
+      "transform": 0,
+      "bitdepth": 8,
+      "cm": "srgb",
+      "sdr_brightness": 1,
+      "sdr_saturation": 1,
+      "sdr_min_luminance": 0.2,
+      "sdr_max_luminance": 80,
+      "min_luminance": 0
+    }
+  ],
+  "workspaces": {
+    "enabled": true,
+    "strategy": "manual",
+    "max_workspaces": 9,
+    "group_size": 3,
+    "monitor_order": [
+      "edp-1"
+    ],
+    "rules": [
+      {
+        "workspace": "1",
+        "output_key": ""
+      },
+      {
+        "workspace": "special:scratchpad",
+        "output_key": ""
+      }
+    ]
+  },
+  "exec": ""
+}
