@@ -6,3 +6,5 @@ keyboard_layout:
   variant: "intl"
 
 search_shortcut: "ALT+SHIFT+SPACE"
+show_notifications: false
+
